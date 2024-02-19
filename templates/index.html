@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Price Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="content-container">
+      <div id="stockTicker" class="ticker-container"></div>
+      <h1>Stock Price Tracker</h1>
+      <form id="stockForm" class="input-and-info">
+        <div>
+          <input
+            type="text"
+            id="stockSymbol"
+            placeholder="Enter Stock Symbol"
+            aria-label="Stock Symbol"
+          />
+          <button type="submit">Get Stock Price</button>
+        </div>
+        <div id="stockInfoContainer">
+          <div id="stockNews" class="info-box">Latest News</div>
+        </div>
+      </form>
+      <div id="chartContainer">
+        <canvas id="stockChart"></canvas>
+      </div>
+    </div>
+    <script src="/static/script.js"></script>
+    <script>
+      document
+        .getElementById("stockForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          fetchStockPrice(document.getElementById("stockSymbol").value);
+        });
+    </script>
+  </body>
+</html>
